@@ -93,6 +93,8 @@ spec:
         sampling: {{ .Values.tracing.sampling }}
       zipkinAddress: {{ .Values.tracing.address }}:{{.Values.tracing.port}}
       holdApplicationUntilProxyStarts: true
+      proxyMetadata:
+        ISTIO_META_DNS_CAPTURE: "true"
     {{- if .Values.meshConfig }}
     {{- toYaml .Values.meshConfig | nindent 4 }}
     {{- end }}
